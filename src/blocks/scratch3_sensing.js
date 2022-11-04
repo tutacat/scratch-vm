@@ -263,11 +263,11 @@ class Scratch3SensingBlocks {
         if (typeof this.runtime.audioEngine === 'undefined') return -1;
         if (this.runtime.currentStepTime === null) return -1;
 
-        // Only measure loudness once per step
-        const timeSinceLoudness = this._timer.time() - this._cachedLoudnessTimestamp;
+        // measure loudness always
+        /*const timeSinceLoudness = this._timer.time() - this._cachedLoudnessTimestamp;
         if (timeSinceLoudness < this.runtime.currentStepTime) {
             return this._cachedLoudness;
-        }
+        }*/
 
         this._cachedLoudnessTimestamp = this._timer.time();
         this._cachedLoudness = this.runtime.audioEngine.getLoudness();
